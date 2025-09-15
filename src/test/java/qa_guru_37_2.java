@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 
@@ -20,9 +21,9 @@ public class qa_guru_37_2 {
     @Test
     void qa_guru_37_2() {
         open("/automation-practice-form");
-        $x("//input[@id='firstName']").setValue("Sergey");
-        $x("//input[@id='lastName']").setValue("Rzhevsky");
-        $x("//input[@id='userEmail']").setValue("jca@mail.ru");
+        $x("//input[@id='firstName']").setValue("Serg");
+        $x("//input[@id='lastName']").setValue("Rzh");
+        $x("//input[@id='userEmail']").setValue("jc@mail.ru");
         $x("//label[@for='gender-radio-1']").click();
         $x("//input[@id='userNumber']").setValue("12345678901");
         $x("//input[@id='dateOfBirthInput']").click();
@@ -30,12 +31,15 @@ public class qa_guru_37_2 {
         $x("//select[@class='react-datepicker__year-select']").selectOption("1984");
         $x("//div[contains(@class, 'react-datepicker__day') and text()='8' and not(contains(@class, 'outside-month'))]").click();
         $x("//input[@id='subjectsInput']").setValue("C").pressEnter();
+        $x("//label[@for='hobbies-checkbox-2']").click();
         $x("//textarea[@id='currentAddress']").setValue("Адрес");
+        $x("//input[@id='uploadPicture']").sendKeys("C:\\Users\\mesoi\\IdeaProjects\\qa_guru_37_2\\img.png");
+
+        $x("//div[@id='state']").click();
+        $x("//div[contains(@id,'react-select-3-option')][text()='NCR']").click();
+
+        $x("//div[@id='city']").click();
+        $x("//div[contains(@id,'react-select-4-option')][text()='Delhi']").click();
+        $x("//button[@id='submit']").click();
     }
 }
-
-
-
-
-
-
